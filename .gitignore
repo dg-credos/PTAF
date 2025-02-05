@@ -1,0 +1,8 @@
+.venv
+.venv/
+config.py
+
+_tests/
+Backup/
+DATA/
+DATA_TPL/

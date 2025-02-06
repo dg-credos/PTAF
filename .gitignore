@@ -6,3 +6,5 @@ _tests/
 Backup/
 DATA/
 DATA_TPL/
+PTAF_REST_API/
+.idea/

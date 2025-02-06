@@ -26,17 +26,19 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
+from config import base_url
+from config import session_auth
+
 # адрес MGMT PTAF и данные для входа
 # у/з должна иметь права просмотра всех данных, которые собирает
+# строки выше "from config import" нужно закомментировать
+# строки ниже нужно раскомментировать и заполнить
 # base_url = 'https://FQDN'
 # session_auth = {
 # 	'username': 'audit',
 # 	'password': 'password',
 # 	'fingerprint': 'test_2025',
 # }
-
-from config import base_url
-from config import session_auth
 
 pathroot_polices = './data/polices'
 pathroot_templates = './data/templates'

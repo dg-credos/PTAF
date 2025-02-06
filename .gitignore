@@ -7,4 +7,7 @@ Backup/
 DATA/
 DATA_TPL/
 PTAF_REST_API/
+PTAF_REST_API
 .idea/
+/git_clear.txt
+/main.py

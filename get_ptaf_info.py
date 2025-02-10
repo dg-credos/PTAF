@@ -211,7 +211,7 @@ def get_info_application_polices(session: requests.Session, api_url: str, filter
 				'rule_name': rule_name,
 				'rule_id': rule_id,
 				'rule_enabled': rule_enabled,
-				'rule_has_overrides': rule_info.get('has_overrides', True),
+				'rule_has_overrides': rule_info.get('has_overrides', None),
 				'rule_variables': rule_info.get('variables', {}),
 				'template_id': rule_info.get('policy_template_id', ''),
 				'template_type': rule_info.get('policy_template_type', ''),
@@ -297,10 +297,14 @@ def get_info_policy_templates(session: requests.Session, api_url: str, filter_by
 				'rule_name': rule_name,
 				'rule_id': rule_id,
 				'rule_enabled': rule_enabled,
-				'rule_has_overrides': rule_info['has_overrides'],
-				'rule_variables': rule_info.get('variables', None),
+				'rule_has_overrides': rule_info.get('has_overrides', None),
+				'rule_variables': rule_info.get('variables', {}),
 				'policy_template_id': rule_info['policy_template_id'],
 				'policy_template_type': rule_info['policy_template_type'],
+				'phase': rule_info.get('phase', ''),
+				'is_system': rule_info.get('is_system', ''),
+				'event': rule_info.get('event', ''),
+				'actions': rule_info.get('actions', ''),
 			}
 			rules_info.append(rule_info)
 

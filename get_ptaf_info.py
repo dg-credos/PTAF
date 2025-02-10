@@ -365,11 +365,12 @@ def convert_rules_info_to_text(
 		где, app_id берется из ключей словаря rules_info
 	"""
 	app_info = dict()
+	skip_keys = skip_columns or list()
+	if 'rule_variables' not in skip_keys:
+		skip_keys = skip_keys + ['rule_variables']
+
 	for app_id, rules_info in rules_info.items():
 		rule_info_keys = rules_info[0].keys()
-
-		skip_keys = [] if skip_columns is None else skip_columns
-		skip_keys += ['rule_variables']
 
 		columns_names = columns_names or dict()
 		columns_names = {key: columns_names.get(key, key) for key in rule_info_keys}
@@ -530,18 +531,18 @@ def get_ptaf_info():
 		session=session, api_url=api_url,
 		pathroot=pathroot_polices,
 		# filter_by_id = 'c8e2d0e5-aa70-445a-beea-f809e5d203f1', # 1c-web
-		# filter_by_id = '7e28387e-7f62-468c-82b9-025d128ed216', # bitrix
+		filter_by_id = '7e28387e-7f62-468c-82b9-025d128ed216', # bitrix
 		actions=actions_user_friendly,
 		classifiers=classifiers_user_friendly,
 	)
 
-	gather_templates_info(
-		session=session, api_url=api_url,
-		pathroot=pathroot_templates,
-		# filter_by_id='7c749ae1-f96b-432a-bfe7-81006dd570b6', # 'Bitrix (user)'
-		actions=actions_user_friendly,
-		classifiers=classifiers_user_friendly,
-	)
+	# gather_templates_info(
+	# 	session=session, api_url=api_url,
+	# 	pathroot=pathroot_templates,
+	# 	# filter_by_id='7c749ae1-f96b-432a-bfe7-81006dd570b6', # 'Bitrix (user)'
+	# 	actions=actions_user_friendly,
+	# 	classifiers=classifiers_user_friendly,
+	# )
 
 
 if __name__ == '__main__':
